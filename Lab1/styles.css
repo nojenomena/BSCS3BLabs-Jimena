@@ -1,13 +1,85 @@
-.about {
-    font-family: 'Trebuchet MS';
+.page-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    min-height: 130vh;
+
+    position: relative;
+    width: 100%;
 }
 
-.names {
+.left-half {
     font-family: 'Trebuchet MS';
+
+    background-color: #f0f0f0;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    row-gap: 0;
+    align-content: start;
+
+}
+
+.right-half {
+    background-image: url('jeno-pic.jpg');
+    background-size: 200%;
+    background-position: 50% 90%;
+    background-repeat: no-repeat;
+
+    background-color: #f0f0f0;
+}
+
+.about-container { 
+    position: relative;
+    width: 100%;
+    overflow-wrap: break-word;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.text-group-title {
+    display: flex;
+    flex-direction: column;
+    padding-left: 90px;
+    padding-top: 90px;
+}
+
+.about-text {
+    font-size: 100px;
+    margin: 0px 0px 20px 0px;
+}
+
+.name-text {
     font-size: 25px;
+    margin: 0px;
 }
 
-.general-text {
-    font-family: 'Trebuchet MS';
+.paragraph-container {
+    width: 80%;
+    height: 50%;
+    background-color: #f0f0f0;
+    overflow-wrap: break-word;
+    text-align: justify;
     font-size: 20px;
+}
+
+.first-list-container, .second-list-container, .third-list-container {
+    margin-left: 90px;
+    margin-top: 0px;
+}
+
+.first-list-container h6, .second-list-container h6, .third-list-container h6 {
+    font-size: 30px;
+    margin-top: 20px; 
+    margin-bottom: 15px; 
+    
+}
+
+.first-list-container ul, .first-list-container ol, .second-list-container ul, .second-list-container ol, .third-list-container ul, .third-list-container ol {
+    list-style-position: outside;
+    font-size: 20px;
+    column-count: 2;
+    column-gap: 20px;
 }
