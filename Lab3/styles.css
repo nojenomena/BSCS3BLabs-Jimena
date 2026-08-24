@@ -1,0 +1,63 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    width: 80%;
+    margin: auto;
+}
+
+#logo {
+    background-color: red;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+#navigation {
+    background-color: orange;
+    margin-top: 5px;
+    width: 80%;
+    position: fixed;
+    top: 0px;
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+#banner {
+    background-color: green;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+#main {
+    background-color: blue;
+    margin-top: 5px;
+}
+
+#side {
+    background-color: indigo;
+    width: 30%;
+    text-align: justify;
+    margin-top: 5px;
+    float: left;
+    padding: 10px;
+}
+
+#content {
+    background-color: violet;
+    width: 67%;
+    text-align: justify;
+    margin-top: 5px;
+    float: right;
+    padding: 10px;
+}
+
+#footer {
+    background-color: grey;
+    margin-top: 5px;
+    text-align: center;
+    width: 80%;
+    position: fixed;
+    bottom: 0px;
+}
