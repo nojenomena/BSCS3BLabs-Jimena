@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" id="input" placeholder="Enter a string">
+    <button onclick="funcNiJuvelien()">Submit</button>
+
+    <script>
+        function funcNiJuvelien(){
+            let myString = document.getElementById("input").value;
+            document.getElementById("content").textContent = myString + " ni Juvelien";
+        }
+        
+    </script>
+
+    <h1 id="content"></h1>
+
+    <img src="switch-on.png" id="image">
+
+    <button onclick="document.getElementById('image').src='switch-off.png'">Switch Off</button>
+    <button onclick="document.getElementById('image').src='switch-on.png'">Switch On</button>
+</body>
+</html>
