@@ -1,23 +1,40 @@
 <?php
     session_start();
 
-    $name = "Jeno";
-    $password = 123;
+    include ("db.php");
 
-    $text = "";
+    $errors = [];
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        if($name == $username && $password == $password){
-            $_SESSION['username'] = $username;
-        
-            header("Location: dashboard.php");
-            exit();
-        } else {
-            $text = "eeeeeengoooottt";
+        if(empty($username) || empty($password)){
+            $errors[] = "Username and password cannot be empty";
         }
+
+        $sql = "SELECT * FROM users WHERE username = '$username'";
+        $result = $conn->query($sql);
+
+        if($result->num_rows == 1){
+            $user = mysqli_fetch_assoc($result);
+
+            if(password_verify($password, $user['password'])){
+                $_SESSION['username'] = $username;
+                header("Location: dashboard.php");
+                exit();
+            } else{
+                $errors[] = "Incorrect Credentials";
+            }
+        }
+        // if($name == $username && $password == $password){
+        //     $_SESSION['username'] = $username;
+        
+        //     header("Location: dashboard.php");
+        //     exit();
+        // } else {
+        //     $text = "eeeeeengoooottt";
+        // }
     }
 
 ?>
@@ -43,9 +60,6 @@
                 </label>
                 <button type="submit">Submit</button>
             </form>
-            <h1 style="color:red">
-                <?php echo $text; ?>
-            </h1>
             <a href = "signup.php">Sign Up</a>
             </div>
     </div>
