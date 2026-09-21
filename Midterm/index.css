@@ -1,0 +1,43 @@
+body {
+    font-size: 16px;
+}
+
+.main-section {
+    text-align: center;
+    margin-top: 120px;
+}
+
+.tech-section {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.tech-title {
+    text-align: left;
+}
+
+@media (max-width: 576px) {
+    .main-section {
+        margin-top: 60px;
+    }
+
+    .tech-section {
+        margin-top: 50px;
+    }
+
+    .tech-title {
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    #button {
+        width: 100%;
+    }
+}

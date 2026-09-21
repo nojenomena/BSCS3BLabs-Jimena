@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grades Checker</title>
+</head>
+<body>
+    <h1 id="content">Enter a score to check your grade</h1>
+
+    <input type="text" id="score_input" placeholder="Enter your score">
+    <input type="text" id="total_input" placeholder="Enter total score">
+
+    <select id="calculate_type">
+        <option value="percentage">Percentage</option>
+        <option value="pass_fail">Pass/Fail</option>
+    </select>
+
+    <button onclick="calculateGrade()">Calculate Grade</button>
+
+    <script>
+        function calculateGrade() {
+            let score = document.getElementById("score_input").value;
+            let total = document.getElementById("total_input").value;
+            let result;
+            
+            if (calculate_type.value == "percentage"){
+                result = (score / total) * 100;
+
+                if (result >= 75 && result <= 80){
+                    document.getElementById("content").textContent = "Your percentage is: " + result + "%" + " - Nice!";
+                    document.getElementById("lightbulb").src = "lightbulb_on.png";
+                } else if (result >= 81 && result <= 85){
+                    document.getElementById("content").textContent = "Your percentage is: " + result + "%" + " - Good!";
+                    document.getElementById("lightbulb").src = "lightbulb_on.png";
+                } else if (result >= 86 && result <= 90){
+                    document.getElementById("content").textContent = "Your percentage is: " + result + "%" + " - Great!";
+                    document.getElementById("lightbulb").src = "lightbulb_on.png";
+                } else if (result >= 91){
+                    document.getElementById("content").textContent = "Your percentage is: " + result + "%" + " - Excellent!";
+                    document.getElementById("lightbulb").src = "lightbulb_on.png";
+                } else if (result < 75){
+                    document.getElementById("content").textContent = "Your percentage is: " + result + "%" + " - luh, balda!";
+                    document.getElementById("lightbulb").src = "lightbulb_off.png";
+                }
+                
+            } else if (calculate_type.value == "pass_fail"){
+                result = (score / total) * 100;
+                
+                if (result >= 75){
+                    document.getElementById("content").textContent = "Pass";
+                    document.getElementById("lightbulb").src = "lightbulb_on.png";
+                } else if (result < 75){
+                    document.getElementById("content").textContent = "Fail";
+                    document.getElementById("lightbulb").src = "lightbulb_off.png";
+                }
+            }
+        }
+    </script>
+    <br>
+    <img id="lightbulb" src="lightbulb_off.png" style="margin: 20px;">
+</body>
+</html>
