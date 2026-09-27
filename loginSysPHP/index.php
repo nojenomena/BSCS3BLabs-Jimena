@@ -1,22 +1,21 @@
 <?php
     session_start();
+    include 'db.php';
 
-    $name = "Jeno";
-    $password = 123;
-
-    $text = "";
+    $username = "";
+    $password = "";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        if($name == $username && $password == $password){
-            $_SESSION['username'] = $username;
-        
+        $_SESSION['username'] = $username;
+
+        if (loginAuth($username, $password)){
             header("Location: dashboard.php");
             exit();
         } else {
-            $text = "eeeeeengoooottt";
+            $text[] = "Log in failed!";
         }
     }
 
@@ -36,7 +35,7 @@
             <div class="d-flex flex-column align-items-center justify-content-center mt-5">
             <form method="POST">
                 <label for="username">Enter username:
-                    <input type="text" id="username" name="username" placeholder="Username">
+                    <input type="text" id="username" name="username" placeholder="Username"  value= "<?php echo (isset($_SESSION['username'])) ? $username : "";?>">
                 </label>
                 <label for="password">Enter password:
                     <input type="text" id="password" name="password" placeholder="Password">
@@ -44,7 +43,13 @@
                 <button type="submit">Submit</button>
             </form>
             <h1 style="color:red">
-                <?php echo $text; ?>
+                <?php
+                    if(!empty($text)){
+                        foreach ($text as $t){
+                            echo $t . "<br>";
+                        }
+                    }
+                ?>
             </h1>
             <a href = "signup.php">Sign Up</a>
             </div>
